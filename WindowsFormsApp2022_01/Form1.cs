@@ -12,6 +12,8 @@ namespace WindowsFormsApp2022_01
 {
     public partial class Form1 : Form
     {
+        private Student student;
+
         public Form1()
         {
             InitializeComponent();
@@ -20,12 +22,28 @@ namespace WindowsFormsApp2022_01
         private void button1_Click(object sender, EventArgs e)
         {
 
-            Student student = new Student(
+            student = new Student(
                 new StudentView(),
                 "C0000",
                 "三木");
 
             student.show();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            label1.Text = student.getName();
+
+            student.hide();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            student.setName("変身！");
 
         }
     }
