@@ -10,23 +10,27 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2022_01
 {
-    public partial class Form1 : Form
+    public partial class StudentView : Form
     {
-        public Form1()
+        public StudentView()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public Label getId()
         {
 
-            Student student = new Student(
-                new StudentView(),
-                "C0000",
-                "三木");
-
-            student.show();
+            return id;
 
         }
+
+        public Label getName()
+        {
+
+            return name;
+
+        }
+
     }
+
 }
