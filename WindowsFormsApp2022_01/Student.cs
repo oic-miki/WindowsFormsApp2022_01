@@ -7,21 +7,27 @@ using System.Threading.Tasks;
 namespace WindowsFormsApp2022_01
 {
 
-    class Student
+    public class Student : UpdateListener
     {
 
+        private Form1 form;
         private StudentView view;
 
         private String id;
         private String name;
 
-        public Student(StudentView view, String id, String name)
+        public Student(Form1 form, StudentView view, String id, String name)
         {
 
+            this.form = form;
             this.view = view;
 
             setId(id);
             setName(name);
+
+            form.addListener(this);
+
+            show();
 
         }
 
@@ -71,6 +77,15 @@ namespace WindowsFormsApp2022_01
             view.getName().Text = name;
 
             return name;
+
+        }
+
+        public void update()
+        {
+
+            view.getName().Text = form.getLabelText();
+
+//            view.Show();
 
         }
 

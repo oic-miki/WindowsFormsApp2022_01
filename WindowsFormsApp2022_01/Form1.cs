@@ -12,39 +12,79 @@ namespace WindowsFormsApp2022_01
 {
     public partial class Form1 : Form
     {
-        private Student student;
+        private List<UpdateListener> listeners = new List<UpdateListener>();
 
         public Form1()
         {
             InitializeComponent();
         }
 
+        public void addListener(UpdateListener listener)
+        {
+
+            listeners.Add(listener);
+
+            label1.Text = "変ったよ！";
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
 
-            student = new Student(
-                new StudentView(),
-                "C0000",
-                "三木");
+            listeners.Clear();
 
-            student.show();
+            for (int count = 1; count < 10; count++)
+            {
+
+                /*
+                students.Add(new Student(
+                    this,
+                    new StudentView(),
+                    "C000" + count,
+                    "三木"));
+                */
+                new Student(
+                    this,
+                    new StudentView(),
+                    "C000" + count,
+                    "三木" + count);
+
+            }
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
-            label1.Text = student.getName();
+            foreach (UpdateListener listener in listeners)
+            {
 
-            student.hide();
+//                student.show();
+                listener.update();
+
+            }
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
 
-            student.setName("変身！");
+            foreach (Student student in listeners)
+            {
+
+                student.setName("変ったよ！");
+
+            }
 
         }
+
+        public String getLabelText()
+        {
+
+            return label1.Text;
+
+        }
+
     }
+
 }
