@@ -78,13 +78,6 @@ namespace WindowsFormsApp2022_01
 
         }
 
-        public String getLabelText()
-        {
-
-            return label1.Text;
-
-        }
-
     }
 
 }

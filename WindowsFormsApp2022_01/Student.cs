@@ -83,9 +83,7 @@ namespace WindowsFormsApp2022_01
         public void update()
         {
 
-            view.getName().Text = form.getLabelText();
-
-//            view.Show();
+            view.getName().Text = DTOMockObject.getInstance().getString();
 
         }
 
