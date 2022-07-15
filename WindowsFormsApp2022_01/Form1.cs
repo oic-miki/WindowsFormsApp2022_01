@@ -31,7 +31,7 @@ namespace WindowsFormsApp2022_01
         private void button1_Click(object sender, EventArgs e)
         {
 
-            listeners.Clear();
+            init();
 
             for (int count = 1; count < 10; count++)
             {
@@ -50,6 +50,20 @@ namespace WindowsFormsApp2022_01
                     "三木" + count);
 
             }
+
+        }
+
+        private void init()
+        {
+
+            foreach (Student student in listeners)
+            {
+
+                student.hide();
+
+            }
+
+            listeners.Clear();
 
         }
 
